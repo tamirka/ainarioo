@@ -1,0 +1,11 @@
+
+import React from 'react';
+import HowItWorks from './HowItWorks';
+
+const HowItWorksPage: React.FC = () => {
+    return (
+        <HowItWorks />
+    );
+};
+
+export default HowItWorksPage;
