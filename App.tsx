@@ -15,10 +15,17 @@ import HowItWorksPage from './components/HowItWorksPage';
 import PortfolioPage from './components/PortfolioPage';
 import ContactPage from './components/ContactPage';
 import { fetchBlogPosts } from './services/blogService';
+import { updateMetaTags } from './utils/seo';
+import { trackPageView } from './utils/analytics';
 import type { BlogPost } from './types';
 
+interface PageState {
+    name: string;
+    slug: string | null;
+}
+
 const App: React.FC = () => {
-    const [page, setPage] = useState({ name: 'home', slug: null as string | null });
+    const [page, setPage] = useState<PageState>({ name: 'home', slug: null });
     const [posts, setPosts] = useState<BlogPost[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -46,36 +53,71 @@ const App: React.FC = () => {
     };
     
     useEffect(() => {
+        const defaultDescription = "We build AI-powered apps, bots, and tools—all done for you, no tech skills required. Your vision, our expertise.";
+        const defaultImage = "https://picsum.photos/seed/ainario/1200/630";
+
+        let title = 'Ainario: Scenario for all';
+        let description = defaultDescription;
+        let image = defaultImage;
+        let pagePath = '/';
+
         switch (page.name) {
             case 'home':
-                document.title = 'Ainario: Scenario for all';
+                // Uses defaults
                 break;
             case 'services':
-                document.title = 'Our Services | Ainario';
+                title = 'Our Services | Ainario';
+                description = "Explore our custom AI solutions, from 24/7 customer support chatbots to social media automation and industry-specific smart tools.";
+                pagePath = '/services';
                 break;
             case 'how-it-works':
-                document.title = 'How It Works | Ainario';
+                title = 'How It Works | Ainario';
+                description = "Our simple 3-step process takes your vision and turns it into a powerful, ready-to-launch AI solution without any technical headaches.";
+                pagePath = '/how-it-works';
                 break;
             case 'portfolio':
-                document.title = 'Our Portfolio | Ainario';
+                title = 'Our Portfolio | Ainario';
+                description = "See our AI in action. Explore case studies and examples of the custom AI applications, bots, and tools we've delivered for clients.";
+                pagePath = '/portfolio';
                 break;
             case 'contact':
-                document.title = 'Contact Us | Ainario';
+                title = 'Contact Us | Ainario';
+                description = "Ready to build your AI? Share your vision with us and get a free, no-obligation quote and a roadmap to bring your idea to life.";
+                pagePath = '/contact';
                 break;
             case 'blog':
-                document.title = 'Blog | Ainario';
+                title = 'Blog | Ainario';
+                description = "Stay updated with the latest trends in AI, case studies of our work, and expert opinions from our team at Ainario.";
+                pagePath = '/blog';
                 break;
             case 'article':
                 if (loading) {
-                    document.title = 'Loading Article... | Ainario';
+                    title = 'Loading Article... | Ainario';
+                    description = 'Please wait while we load the article.';
                 } else {
                     const article = posts.find(p => p.slug === page.slug);
-                    document.title = article ? `${article.title} | Ainario` : 'Article Not Found | Ainario';
+                    if (article) {
+                        title = `${article.title} | Ainario`;
+                        description = article.excerpt;
+                        image = article.imageUrl;
+                        pagePath = `/blog/${article.slug}`;
+                    } else {
+                        title = 'Article Not Found | Ainario';
+                        description = 'The article you are looking for could not be found.';
+                        pagePath = `/blog/not-found`;
+                    }
                 }
                 break;
             default:
-                document.title = 'Ainario: Scenario for all';
+                title = 'Ainario: Scenario for all';
         }
+        
+        // Update meta tags for SEO and social sharing
+        updateMetaTags(title, description, image, pagePath.substring(1));
+
+        // Track the page view in Google Analytics
+        trackPageView(pagePath, title);
+
     }, [page, posts, loading]);
 
     const renderPage = () => {
