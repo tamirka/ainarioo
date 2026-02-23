@@ -14,6 +14,11 @@ import ServicesPage from './components/ServicesPage';
 import HowItWorksPage from './components/HowItWorksPage';
 import PortfolioPage from './components/PortfolioPage';
 import ContactPage from './components/ContactPage';
+import ToolsPage from './components/ToolsPage';
+import TemplatesPage from './components/TemplatesPage';
+import DoctorPromptGenerator from './components/Tools/DoctorPromptGenerator';
+import DarijaAudioTool from './components/Tools/DarijaAudioTool';
+import AdminDashboard from './components/Admin/AdminDashboard';
 import { fetchBlogPosts } from './services/blogService';
 import { updateMetaTags } from './utils/seo';
 import { trackPageView } from './utils/analytics';
@@ -30,26 +35,30 @@ const App: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const loadPosts = async () => {
-            try {
-                setLoading(true);
-                const fetchedPosts = await fetchBlogPosts();
-                setPosts(fetchedPosts);
-            } catch (err) {
-                setError('Failed to load blog articles. Please try again later.');
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
+    const loadPosts = async () => {
+        try {
+            setLoading(true);
+            const fetchedPosts = await fetchBlogPosts();
+            setPosts(fetchedPosts);
+        } catch (err) {
+            setError('Failed to load blog articles. Please try again later.');
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         loadPosts();
     }, []);
 
     const navigate = (name: string, slug: string | null = null) => {
         setPage({ name, slug });
         window.scrollTo(0, 0);
+        // If navigating back to blog or home, reload posts to see changes from admin
+        if (name === 'blog' || name === 'home') {
+            loadPosts();
+        }
     };
     
     useEffect(() => {
@@ -80,6 +89,26 @@ const App: React.FC = () => {
                 description = "See our AI in action. Explore case studies and examples of the custom AI applications, bots, and tools we've delivered for clients.";
                 pagePath = '/portfolio';
                 break;
+            case 'tools':
+                title = 'Our Tools | Ainario';
+                description = "Explore our suite of AI-powered tools designed to streamline your workflow and boost productivity.";
+                pagePath = '/tools';
+                break;
+            case 'tool-doctor-prompt':
+                title = 'Medical Landing Page Prompt Generator | Ainario';
+                description = "Generate a complete, ready-to-publish landing page prompt for doctors and medical clinics with zero placeholders.";
+                pagePath = '/tools/doctor-prompt';
+                break;
+            case 'tool-darija-audio':
+                title = 'Darija Audio Studio | Ainario';
+                description = "Transcribe Moroccan Darija audio, edit the text, and generate new voiceovers using Gemini AI.";
+                pagePath = '/tools/darija-audio';
+                break;
+            case 'templates':
+                title = 'Templates | Ainario';
+                description = "Jumpstart your projects with our collection of pre-built AI templates and workflows.";
+                pagePath = '/templates';
+                break;
             case 'contact':
                 title = 'Contact Us | Ainario';
                 description = "Ready to build your AI? Share your vision with us and get a free, no-obligation quote and a roadmap to bring your idea to life.";
@@ -89,6 +118,11 @@ const App: React.FC = () => {
                 title = 'Blog | Ainario';
                 description = "Stay updated with the latest trends in AI, case studies of our work, and expert opinions from our team at Ainario.";
                 pagePath = '/blog';
+                break;
+            case 'admin':
+                title = 'Admin Dashboard | Ainario';
+                description = "Manage blog posts and content.";
+                pagePath = '/admin';
                 break;
             case 'article':
                 if (loading) {
@@ -128,12 +162,22 @@ const App: React.FC = () => {
                 return <HowItWorksPage />;
             case 'portfolio':
                 return <PortfolioPage />;
+            case 'tools':
+                return <ToolsPage navigate={navigate} />;
+            case 'tool-doctor-prompt':
+                return <DoctorPromptGenerator navigate={navigate} />;
+            case 'tool-darija-audio':
+                return <DarijaAudioTool navigate={navigate} />;
+            case 'templates':
+                return <TemplatesPage />;
             case 'contact':
                 return <ContactPage />;
             case 'blog':
                 return <BlogPage navigate={navigate} posts={posts} loading={loading} error={error} />;
             case 'article':
                 return <ArticlePage slug={page.slug} navigate={navigate} posts={posts} loading={loading} />;
+            case 'admin':
+                return <AdminDashboard navigate={navigate} />;
             case 'home':
             default:
                 return (
@@ -155,7 +199,7 @@ const App: React.FC = () => {
             <main>
                 {renderPage()}
             </main>
-            <Footer />
+            <Footer navigate={navigate} />
         </div>
     );
 };

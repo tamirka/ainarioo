@@ -1,5 +1,5 @@
 {
   "name": "Ainario: Scenario for all",
   "description": "A landing page for Ainario, an agency that builds custom AI-powered applications, bots, and tools for businesses. No technical skills required.",
-  "requestFramePermissions": []
+  "requestFramePermissions": ["microphone"]
 }

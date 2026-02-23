@@ -37,6 +37,8 @@ const Header: React.FC<HeaderProps> = ({ navigate }) => {
         { page: 'services', label: 'Services' },
         { page: 'how-it-works', label: 'How It Works' },
         { page: 'portfolio', label: 'Portfolio' },
+        { page: 'tools', label: 'Tools' },
+        { page: 'templates', label: 'Templates' },
         { page: 'blog', label: 'Blog' },
         { page: 'contact', label: 'Contact' },
     ];

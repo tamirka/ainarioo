@@ -110,6 +110,7 @@
       ]
     }
     </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root"></div>
@@ -122,6 +123,14 @@
           }).catch(err => {
             console.log('ServiceWorker registration failed: ', err);
           });
+        });
+
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!refreshing) {
+            window.location.reload();
+            refreshing = true;
+          }
         });
       }
     </script>
