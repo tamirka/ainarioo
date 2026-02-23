@@ -25,7 +25,9 @@ const templates = [
     category: "AI & Automation",
     icon: <Camera size={24} />,
     color: "bg-emerald-500",
-    featured: true
+    featured: true,
+    link: "https://ai.studio/apps/drive/1OO5svbAy_o11ogOHQSdAwzGUqR0R_i46",
+    image: "https://picsum.photos/seed/cctv/600/400"
   },
   {
     id: "ai-recycling",
@@ -33,7 +35,9 @@ const templates = [
     subtitle: "Help you recycle your trash, analyse, teach, grow using our latest recycling solution.",
     category: "AI & Automation",
     icon: <Recycle size={24} />,
-    color: "bg-green-500"
+    color: "bg-green-500",
+    link: "https://ai.studio/apps/drive/1QtdLvCdLQ81LJKPtsq1BMsEPo9AtUy93",
+    image: "https://picsum.photos/seed/recycling/600/400"
   },
   {
     id: "ai-assistant",
@@ -50,7 +54,9 @@ const templates = [
     subtitle: "Personal AI teacher for different ages in different subjects and disciplines.",
     category: "Education",
     icon: <BookOpen size={24} />,
-    color: "bg-blue-500"
+    color: "bg-blue-500",
+    link: "https://ai.studio/apps/drive/1LQh_3cIlqEHvHQP7N1DeeDt6Kagnp3wD",
+    image: "https://picsum.photos/seed/tutor/600/400"
   },
   {
     id: "lead-gen",
@@ -58,7 +64,9 @@ const templates = [
     subtitle: "Apex capture leads that qualifies visitors and book meetings.",
     category: "Operations",
     icon: <Users size={24} />,
-    color: "bg-blue-600"
+    color: "bg-blue-600",
+    link: "https://ai.studio/apps/drive/1C-qgZhtuNNu48ak7nHR249acH90Z4KRs",
+    image: "https://picsum.photos/seed/leadgen/600/400"
   },
   {
     id: "campus-quiz",
@@ -66,7 +74,9 @@ const templates = [
     subtitle: "Trivia Quiz for Moroccan schools and universities in different subjects.",
     category: "Education",
     icon: <HelpCircle size={24} />,
-    color: "bg-yellow-500"
+    color: "bg-yellow-500",
+    link: "https://ai.studio/apps/drive/1sgIniDeWtc0IylYi-Kh55ro4KcZ4ftx0",
+    image: "https://picsum.photos/seed/quiz/600/400"
   },
   {
     id: "finbook",
@@ -74,7 +84,9 @@ const templates = [
     subtitle: "Your personal bookkeeping agent that helps you edit, save, and record all transactions.",
     category: "Finance & Legal",
     icon: <Calculator size={24} />,
-    color: "bg-blue-700"
+    color: "bg-blue-700",
+    link: "https://ai.studio/apps/drive/1QchrnZ6TBb0uSONE5mVu8HdeGbAOAFB2",
+    image: "https://picsum.photos/seed/finbook/600/400"
   },
   {
     id: "caftanchic",
@@ -82,7 +94,9 @@ const templates = [
     subtitle: "E-commerce shop for high fashion kaftan style.",
     category: "E-commerce",
     icon: <ShoppingBag size={24} />,
-    color: "bg-amber-700"
+    color: "bg-amber-700",
+    link: "https://ai.studio/apps/drive/1gYYZLIlAUWBbBErjGnBq5SmX3h3vdx-z",
+    image: "https://picsum.photos/seed/caftan/600/400"
   },
   {
     id: "restaurant-cost",
@@ -90,7 +104,9 @@ const templates = [
     subtitle: "Manage ingredient cost of goods and inventory from one single place.",
     category: "Operations",
     icon: <PieChart size={24} />,
-    color: "bg-indigo-600"
+    color: "bg-indigo-600",
+    link: "https://ai.studio/apps/drive/18uyDgbKEvdxwxHDYKyqrrxOPFD40Pm-y",
+    image: "https://picsum.photos/seed/restaurant/600/400"
   },
   {
     id: "xray-analysis",
@@ -98,7 +114,9 @@ const templates = [
     subtitle: "Help you analyse your X-ray for educational purposes.",
     category: "Healthcare",
     icon: <Activity size={24} />,
-    color: "bg-cyan-500"
+    color: "bg-cyan-500",
+    link: "https://ai.studio/apps/drive/1ff_e9w_x4G-iJlJlBBc3jN6T3xMH-UHG",
+    image: "https://picsum.photos/seed/xray/600/400"
   },
   {
     id: "vita-care",
@@ -115,7 +133,9 @@ const templates = [
     subtitle: "PDF generator that turns text into professional PDFs in seconds.",
     category: "AI & Automation",
     icon: <FileText size={24} />,
-    color: "bg-slate-700"
+    color: "bg-slate-700",
+    link: "https://ai.studio/apps/drive/1CaJQBC9xNd1RGrU45H5G6lxHW9f2fs15",
+    image: "https://picsum.photos/seed/pdf/600/400"
   },
   {
     id: "smart-contract",
@@ -123,7 +143,9 @@ const templates = [
     subtitle: "Automate blockchain contract auditing by uploading your contract.",
     category: "Finance & Legal",
     icon: <ShieldCheck size={24} />,
-    color: "bg-violet-600"
+    color: "bg-violet-600",
+    link: "https://ai.studio/apps/drive/1TDsCOOk_kR0gorL48SgIrdeoshh4zfTx",
+    image: "https://picsum.photos/seed/contract/600/400"
   },
   {
     id: "acme-accounting",
@@ -131,7 +153,9 @@ const templates = [
     subtitle: "A ready-made website and landing page for your accounting business.",
     category: "Finance & Legal",
     icon: <Briefcase size={24} />,
-    color: "bg-emerald-600"
+    color: "bg-emerald-600",
+    link: "https://ai.studio/apps/drive/1dBHa3J6BR74oT6elJdGa3lvVMMxDnasK",
+    image: "https://picsum.photos/seed/accounting/600/400"
   },
   {
     id: "story-weaver",
@@ -139,7 +163,9 @@ const templates = [
     subtitle: "Your co-author agent to help you generate your brilliant idea and script.",
     category: "AI & Automation",
     icon: <PenTool size={24} />,
-    color: "bg-fuchsia-500"
+    color: "bg-fuchsia-500",
+    link: "https://ai.studio/apps/drive/16TCeQTeJ1mOWTDmatmloG243PXnEIrgg",
+    image: "https://picsum.photos/seed/story/600/400"
   },
   {
     id: "dr-lahlou",
@@ -155,7 +181,9 @@ const templates = [
     subtitle: "Generate full posts for different styles and formats. Automate social media.",
     category: "AI & Automation",
     icon: <Share2 size={24} />,
-    color: "bg-blue-400"
+    color: "bg-blue-400",
+    link: "https://ai.studio/apps/drive/1P_i_dET0BpXmQ4vbssXdJ_aKWQnmoj3B",
+    image: "https://picsum.photos/seed/social/600/400"
   },
   {
     id: "comic-style-gen",
@@ -171,7 +199,9 @@ const templates = [
     subtitle: "Buy and sell all items related to tennis and racket sports.",
     category: "E-commerce",
     icon: <ShoppingCart size={24} />,
-    color: "bg-lime-500"
+    color: "bg-lime-500",
+    link: "https://ai.studio/apps/drive/1li8yJlYV2NhxKjr5W4OKs-gxxeu0PMF6",
+    image: "https://picsum.photos/seed/tennis/600/400"
   },
   {
     id: "trivia-football",
@@ -189,7 +219,9 @@ const templates = [
     subtitle: "Help hostel and guesthouses manage their property with tiny details.",
     category: "Operations",
     icon: <Home size={24} />,
-    color: "bg-sky-500"
+    color: "bg-sky-500",
+    link: "https://ai.studio/apps/drive/1YM4i2EIqxzmQiAp_CzQij_JREJ482CHT",
+    image: "https://picsum.photos/seed/hostel/600/400"
   },
   {
     id: "video-clip-prod",
