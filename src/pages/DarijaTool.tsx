@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { GoogleGenAI, Modality } from "@google/genai";
 import {
   Mic,
@@ -10,6 +10,7 @@ import {
   RefreshCw,
   Volume2,
   StopCircle,
+  FileText,
 } from "lucide-react";
 
 export default function DarijaTool() {

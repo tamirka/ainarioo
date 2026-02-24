@@ -14,7 +14,8 @@ const categories = [
   "Finance & Legal",
   "E-commerce",
   "Education",
-  "Operations"
+  "Operations",
+  "Gaming"
 ];
 
 const templates = [
@@ -238,6 +239,136 @@ const templates = [
     category: "Operations",
     icon: <Utensils size={24} />,
     color: "bg-orange-600"
+  },
+  {
+    id: "fruit-ninja",
+    title: "Veggie Slicer",
+    subtitle: "Fruit Ninja-inspired slicing game featuring vibrant visuals, fluid canvas animations, and a combo-driven scoring system. Slice veggies, avoid bombs, and survive as long as you can!",
+    category: "Gaming",
+    icon: <Activity size={24} />,
+    color: "bg-red-500",
+    link: "https://ai.studio/apps/drive/16Bkr54mzhHk9v4S7RPDVkZ_aN0rlJVmK",
+    image: "https://picsum.photos/seed/fruitninja/600/400"
+  },
+  {
+    id: "holidays-image-studio",
+    title: "Holidays & Celebrations Image Studio",
+    subtitle: "A professional AI studio for generating festive, culturally respectful, and joyful celebration imagery.",
+    category: "AI & Automation",
+    icon: <Sparkles size={24} />,
+    color: "bg-pink-500",
+    link: "https://ai.studio/apps/a9d10efc-3e7f-45f9-92cb-6448f3b3abc3",
+    image: "https://picsum.photos/seed/holidays/600/400"
+  },
+  {
+    id: "freshmart",
+    title: "FreshMart - Premium Grocery eCommerce",
+    subtitle: "A modern, premium grocery eCommerce template with a clean design and smooth user experience.",
+    category: "E-commerce",
+    icon: <ShoppingBag size={24} />,
+    color: "bg-emerald-600",
+    link: "https://ai.studio/apps/drive/1C0EoLY3xsVe9yp-gWi_vucDQD1NHjn4c",
+    image: "https://picsum.photos/seed/freshmart/600/400"
+  },
+  {
+    id: "turbo-dash-2d",
+    title: "Turbo Dash 2D",
+    subtitle: "A high-octane, arcade-style 2D top-down racing game with dynamic difficulty and an AI race commentator.",
+    category: "Gaming",
+    icon: <Activity size={24} />,
+    color: "bg-orange-500",
+    link: "https://ai.studio/apps/drive/1BbTBofzzI7LpE67FQiEGhx2HiNXdDJf4",
+    image: "https://picsum.photos/seed/turbodash/600/400"
+  },
+  {
+    id: "lumina-ai-studios",
+    title: "Lumina AI Studios",
+    subtitle: "Full-service AI video production agency for artists and creators. We handle the entire process from concept to final render.",
+    category: "AI & Automation",
+    icon: <Video size={24} />,
+    color: "bg-purple-600",
+    link: "https://ai.studio/apps/drive/1xH9MgK6LAxRUBMBoB5Xm-XmICf9Qlb6v",
+    image: "https://picsum.photos/seed/lumina/600/400"
+  },
+  {
+    id: "architecture-image-studio",
+    title: "Architecture Image Studio",
+    subtitle: "A professional architectural visualization tool powered by Gemini. Generate high-fidelity renders with granular control over style, materials, and environment.",
+    category: "AI & Automation",
+    icon: <ImageIcon size={24} />,
+    color: "bg-stone-600",
+    link: "https://ai.studio/apps/drive/1ANkazrdb0k7DVKpwswnL48n2g4Z3tYOE",
+    image: "https://picsum.photos/seed/architecture/600/400"
+  },
+  {
+    id: "business-finance-image-studio",
+    title: "Business & Finance Image Studio",
+    subtitle: "A premium AI-powered image generator for professional business, finance, and corporate visuals.",
+    category: "AI & Automation",
+    icon: <Briefcase size={24} />,
+    color: "bg-blue-800",
+    link: "https://ai.studio/apps/drive/1egW_g7XINPlTYwvuSdN1AkKOpvA--9Vn",
+    image: "https://picsum.photos/seed/business/600/400"
+  },
+  {
+    id: "education-image-studio",
+    title: "Education Image Studio",
+    subtitle: "A professional AI image generator tailored for educational content, teachers, and schools.",
+    category: "Education",
+    icon: <BookOpen size={24} />,
+    color: "bg-emerald-500",
+    link: "https://ai.studio/apps/drive/1ndZgvL-ZhoAjIgWzHYLitSbBFezUPB0n",
+    image: "https://picsum.photos/seed/education/600/400"
+  },
+  {
+    id: "wildlife-image-studio",
+    title: "Wildlife Image Studio",
+    subtitle: "A professional-grade AI studio for generating cinematic wildlife and nature imagery with granular control over environment, lighting, and camera settings.",
+    category: "AI & Automation",
+    icon: <Camera size={24} />,
+    color: "bg-green-700",
+    link: "https://ai.studio/apps/drive/1AuvmRUjVcTK-n7Hj9N6kN4_I4sc9ibIW",
+    image: "https://picsum.photos/seed/wildlife/600/400"
+  },
+  {
+    id: "cinegen-ai",
+    title: "CineGen AI",
+    subtitle: "A professional AI-powered cinematic storyboard creator that turns concepts into visual production plans with style consistency.",
+    category: "AI & Automation",
+    icon: <Video size={24} />,
+    color: "bg-indigo-700",
+    link: "https://ai.studio/apps/drive/1Yhk2s2-m70D7XbLA01iSg_Je0F-Xiju0",
+    image: "https://picsum.photos/seed/cinegen/600/400"
+  },
+  {
+    id: "legal-ai-maroc",
+    title: "Legal AI Maroc",
+    subtitle: "An AI-powered application designed to provide precision insights into Moroccan laws, Dahirs, and codes for professionals.",
+    category: "Finance & Legal",
+    icon: <Briefcase size={24} />,
+    color: "bg-slate-800",
+    link: "https://ai.studio/apps/drive/1pSrviVSi_2GdWguZ8FUIIBsuzPGhzap2",
+    image: "https://picsum.photos/seed/legalmaroc/600/400"
+  },
+  {
+    id: "kids-story-gen",
+    title: "Kid's Story Generation AI",
+    subtitle: "A fun and interactive application that uses AI to generate and illustrate magical stories for children.",
+    category: "Education",
+    icon: <Sparkles size={24} />,
+    color: "bg-fuchsia-400",
+    link: "https://ai.studio/apps/drive/1K89KMHVfjEWYo92KnBAeL7Kzxz_cLNPD",
+    image: "https://picsum.photos/seed/kidsstory/600/400"
+  },
+  {
+    id: "promptcrafter",
+    title: "PromptCrafter",
+    subtitle: "An AI-powered assistant that helps creators generate high-quality, detailed prompts for various generative AI models.",
+    category: "AI & Automation",
+    icon: <PenTool size={24} />,
+    color: "bg-cyan-600",
+    link: "https://ai.studio/apps/drive/1rQVcaGzK4reBuw3yVp94ux6smmVvsuDX",
+    image: "https://picsum.photos/seed/promptcrafter/600/400"
   }
 ];
 
