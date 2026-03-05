@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { BlogPost } from '../types';
 import BlogCard from './BlogCard';
 
@@ -66,12 +67,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigate, posts, loading, error }) 
                                     </p>
                                 </div>
                             </div>
-                             <button 
-                                onClick={() => navigate('article', featuredPost.slug)}
-                                className="bg-cyan-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors duration-300 shadow-lg shadow-cyan-500/20"
+                             <Link 
+                                to={`/blog/${featuredPost.slug}`}
+                                className="bg-cyan-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors duration-300 shadow-lg shadow-cyan-500/20 inline-block"
                             >
                                 Read More
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 )}

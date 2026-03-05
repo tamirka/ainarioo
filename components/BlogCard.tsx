@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { BlogPost } from '../types';
 
 type NavigateFunction = (pageName: string, slug?: string | null) => void;
@@ -9,13 +10,9 @@ interface BlogCardProps {
     navigate: NavigateFunction;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ post, navigate }) => (
-    <a 
-        href={`/blog/${post.slug}`} 
-        onClick={(e) => {
-            e.preventDefault();
-            navigate('article', post.slug);
-        }}
+const BlogCard: React.FC<BlogCardProps> = ({ post }) => (
+    <Link 
+        to={`/blog/${post.slug}`}
         className="block bg-gray-800 rounded-lg overflow-hidden border border-gray-700/80 group transition-all duration-300 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-900/20 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-cyan-500"
         aria-label={`Read article: ${post.title}`}
     >
@@ -40,7 +37,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, navigate }) => (
                 </footer>
             </div>
         </article>
-    </a>
+    </Link>
 );
 
 export default BlogCard;

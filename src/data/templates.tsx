@@ -12,7 +12,7 @@ export const templates: Template[] = [
   {
     id: "cctv-prompt",
     title: "CCTV Prompt Gen",
-    slug: "cctv-prompt-gen",
+    slug: "cctv",
     subtitle: "Generate high quality CCTV prompts to help you generate the best sequence.",
     description: "Create realistic surveillance-style video prompts effortlessly. Whether for security training simulations, film production, or creative projects, this tool helps you craft detailed descriptions that generative AI models can turn into convincing CCTV footage.",
     category: "AI & Automation",

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, CheckCircle, Share2, Star } from 'lucide-react';
 import { templates } from '../src/data/templates';
 import { updateMetaTags } from '../utils/seo';
@@ -8,7 +9,7 @@ interface TemplateDetailPageProps {
   navigate: (page: string) => void;
 }
 
-const TemplateDetailPage: React.FC<TemplateDetailPageProps> = ({ slug, navigate }) => {
+const TemplateDetailPage: React.FC<TemplateDetailPageProps> = ({ slug }) => {
   const template = templates.find(t => t.slug === slug);
 
   useEffect(() => {
@@ -27,12 +28,12 @@ const TemplateDetailPage: React.FC<TemplateDetailPageProps> = ({ slug, navigate 
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Template not found</h2>
-          <button 
-            onClick={() => navigate('templates')}
+          <Link 
+            to="/templates"
             className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center justify-center gap-2"
           >
             <ArrowLeft size={20} /> Back to Templates
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -42,15 +43,15 @@ const TemplateDetailPage: React.FC<TemplateDetailPageProps> = ({ slug, navigate 
     <div className="min-h-screen bg-[#f8f9fa] pt-24 pb-20">
       {/* Breadcrumb / Back Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <button 
-          onClick={() => navigate('templates')}
+        <Link 
+          to="/templates"
           className="group flex items-center text-gray-500 hover:text-indigo-600 transition-colors"
         >
           <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center mr-3 group-hover:border-indigo-200 group-hover:bg-indigo-50 transition-all">
             <ArrowLeft size={16} />
           </div>
           <span className="font-medium">Back to Templates</span>
-        </button>
+        </Link>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

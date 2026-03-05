@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Search, ArrowRight, Star, Zap, Layout
 } from 'lucide-react';
@@ -20,15 +21,10 @@ interface TemplatesPageProps {
   navigate?: (page: string, slug?: string | null) => void;
 }
 
-const TemplateCard: React.FC<{ template: Template; navigate?: (page: string, slug?: string | null) => void }> = ({ template, navigate }) => (
-  <div 
-    onClick={(e) => {
-      e.preventDefault();
-      if (navigate) {
-        navigate('template-detail', template.slug);
-      }
-    }}
-    className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full cursor-pointer"
+const TemplateCard: React.FC<{ template: Template; navigate?: (page: string, slug?: string | null) => void }> = ({ template }) => (
+  <Link 
+    to={`/template/${template.slug}`}
+    className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full cursor-pointer block"
   >
     {/* Image Section */}
     <div className="w-full h-48 bg-gray-100 relative overflow-hidden">
@@ -72,7 +68,7 @@ const TemplateCard: React.FC<{ template: Template; navigate?: (page: string, slu
         <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
       </div>
     </div>
-  </div>
+  </Link>
 );
 
 const TemplatesPage: React.FC<TemplatesPageProps> = ({ navigate }) => {
