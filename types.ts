@@ -35,3 +35,18 @@ export interface BlogPost {
     readingTime: string;
     content: string;
 }
+
+export interface Template {
+    id: string;
+    title: string;
+    subtitle: string;
+    category: string;
+    icon: React.ReactNode;
+    color: string;
+    link?: string;
+    image?: string;
+    featured?: boolean;
+    slug: string;
+    description?: string;
+    features?: string[];
+}

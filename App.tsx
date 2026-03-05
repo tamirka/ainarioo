@@ -16,6 +16,7 @@ import PortfolioPage from './components/PortfolioPage';
 import ContactPage from './components/ContactPage';
 import ToolsPage from './components/ToolsPage';
 import TemplatesPage from './components/TemplatesPage';
+import TemplateDetailPage from './components/TemplateDetailPage';
 import DoctorPromptGenerator from './components/Tools/DoctorPromptGenerator';
 import DarijaAudioTool from './components/Tools/DarijaAudioTool';
 import AdminDashboard from './components/Admin/AdminDashboard';
@@ -109,6 +110,10 @@ const App: React.FC = () => {
                 description = "Jumpstart your projects with our collection of pre-built AI templates and workflows.";
                 pagePath = '/templates';
                 break;
+            case 'template-detail':
+                title = 'Template Details | Ainario';
+                pagePath = `/templates/${page.slug}`;
+                break;
             case 'contact':
                 title = 'Contact Us | Ainario';
                 description = "Ready to build your AI? Share your vision with us and get a free, no-obligation quote and a roadmap to bring your idea to life.";
@@ -169,7 +174,9 @@ const App: React.FC = () => {
             case 'tool-darija-audio':
                 return <DarijaAudioTool navigate={navigate} />;
             case 'templates':
-                return <TemplatesPage />;
+                return <TemplatesPage navigate={navigate} />;
+            case 'template-detail':
+                return page.slug ? <TemplateDetailPage slug={page.slug} navigate={navigate} /> : <TemplatesPage navigate={navigate} />;
             case 'contact':
                 return <ContactPage />;
             case 'blog':

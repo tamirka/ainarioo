@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { 
-  Camera, Recycle, Sparkles, BookOpen, Users, HelpCircle, 
-  Calculator, ShoppingBag, PieChart, Activity, HeartPulse, 
-  FileText, ShieldCheck, Briefcase, PenTool, Stethoscope, 
-  Share2, Image as ImageIcon, ShoppingCart, Trophy, 
-  Home, Video, Utensils, Search, ArrowRight, Star, Zap, Layout
+  Search, ArrowRight, Star, Zap, Layout
 } from 'lucide-react';
+import { templates } from '../src/data/templates';
+import { Template } from '../types';
 
 const categories = [
   "All",
@@ -18,369 +16,27 @@ const categories = [
   "Gaming"
 ];
 
-const templates = [
-  {
-    id: "cctv-prompt",
-    title: "CCTV Prompt Gen",
-    subtitle: "Generate high quality CCTV prompts to help you generate the best sequence.",
-    category: "AI & Automation",
-    icon: <Camera size={24} />,
-    color: "bg-emerald-500",
-    featured: true,
-    link: "https://ai.studio/apps/drive/1OO5svbAy_o11ogOHQSdAwzGUqR0R_i46",
-    image: "https://picsum.photos/seed/cctv/600/400"
-  },
-  {
-    id: "ai-recycling",
-    title: "AI Recycling",
-    subtitle: "Help you recycle your trash, analyse, teach, grow using our latest recycling solution.",
-    category: "AI & Automation",
-    icon: <Recycle size={24} />,
-    color: "bg-green-500",
-    link: "https://ai.studio/apps/drive/1QtdLvCdLQ81LJKPtsq1BMsEPo9AtUy93",
-    image: "https://picsum.photos/seed/recycling/600/400"
-  },
-  {
-    id: "ai-assistant",
-    title: "AI Assistant",
-    subtitle: "Your personal AI assistant to help you manage your daily tasks and boost productivity.",
-    category: "AI & Automation",
-    icon: <Sparkles size={24} />,
-    color: "bg-indigo-500",
-    featured: true
-  },
-  {
-    id: "ai-tutor-pro",
-    title: "AI Tutor Pro",
-    subtitle: "Personal AI teacher for different ages in different subjects and disciplines.",
-    category: "Education",
-    icon: <BookOpen size={24} />,
-    color: "bg-blue-500",
-    link: "https://ai.studio/apps/drive/1LQh_3cIlqEHvHQP7N1DeeDt6Kagnp3wD",
-    image: "https://picsum.photos/seed/tutor/600/400"
-  },
-  {
-    id: "lead-gen",
-    title: "Lead Gen",
-    subtitle: "Apex capture leads that qualifies visitors and book meetings.",
-    category: "Operations",
-    icon: <Users size={24} />,
-    color: "bg-blue-600",
-    link: "https://ai.studio/apps/drive/1C-qgZhtuNNu48ak7nHR249acH90Z4KRs",
-    image: "https://picsum.photos/seed/leadgen/600/400"
-  },
-  {
-    id: "campus-quiz",
-    title: "Campus Quiz",
-    subtitle: "Trivia Quiz for Moroccan schools and universities in different subjects.",
-    category: "Education",
-    icon: <HelpCircle size={24} />,
-    color: "bg-yellow-500",
-    link: "https://ai.studio/apps/drive/1sgIniDeWtc0IylYi-Kh55ro4KcZ4ftx0",
-    image: "https://picsum.photos/seed/quiz/600/400"
-  },
-  {
-    id: "finbook",
-    title: "Finbook",
-    subtitle: "Your personal bookkeeping agent that helps you edit, save, and record all transactions.",
-    category: "Finance & Legal",
-    icon: <Calculator size={24} />,
-    color: "bg-blue-700",
-    link: "https://ai.studio/apps/drive/1QchrnZ6TBb0uSONE5mVu8HdeGbAOAFB2",
-    image: "https://picsum.photos/seed/finbook/600/400"
-  },
-  {
-    id: "caftanchic",
-    title: "Caftanchic",
-    subtitle: "E-commerce shop for high fashion kaftan style.",
-    category: "E-commerce",
-    icon: <ShoppingBag size={24} />,
-    color: "bg-amber-700",
-    link: "https://ai.studio/apps/drive/1gYYZLIlAUWBbBErjGnBq5SmX3h3vdx-z",
-    image: "https://picsum.photos/seed/caftan/600/400"
-  },
-  {
-    id: "restaurant-cost",
-    title: "Restaurant Cost Audit",
-    subtitle: "Manage ingredient cost of goods and inventory from one single place.",
-    category: "Operations",
-    icon: <PieChart size={24} />,
-    color: "bg-indigo-600",
-    link: "https://ai.studio/apps/drive/18uyDgbKEvdxwxHDYKyqrrxOPFD40Pm-y",
-    image: "https://picsum.photos/seed/restaurant/600/400"
-  },
-  {
-    id: "xray-analysis",
-    title: "X-Ray Analysis",
-    subtitle: "Help you analyse your X-ray for educational purposes.",
-    category: "Healthcare",
-    icon: <Activity size={24} />,
-    color: "bg-cyan-500",
-    link: "https://ai.studio/apps/drive/1ff_e9w_x4G-iJlJlBBc3jN6T3xMH-UHG",
-    image: "https://picsum.photos/seed/xray/600/400"
-  },
-  {
-    id: "vita-care",
-    title: "Vita Care AI",
-    subtitle: "The future of health management. Our Voice assistant for all your clinical needs.",
-    category: "Healthcare",
-    icon: <HeartPulse size={24} />,
-    color: "bg-rose-500",
-    featured: true
-  },
-  {
-    id: "aipdfpro",
-    title: "AI PDF Pro",
-    subtitle: "PDF generator that turns text into professional PDFs in seconds.",
-    category: "AI & Automation",
-    icon: <FileText size={24} />,
-    color: "bg-slate-700",
-    link: "https://ai.studio/apps/drive/1CaJQBC9xNd1RGrU45H5G6lxHW9f2fs15",
-    image: "https://picsum.photos/seed/pdf/600/400"
-  },
-  {
-    id: "smart-contract",
-    title: "Smart Contract Editor",
-    subtitle: "Automate blockchain contract auditing by uploading your contract.",
-    category: "Finance & Legal",
-    icon: <ShieldCheck size={24} />,
-    color: "bg-violet-600",
-    link: "https://ai.studio/apps/drive/1TDsCOOk_kR0gorL48SgIrdeoshh4zfTx",
-    image: "https://picsum.photos/seed/contract/600/400"
-  },
-  {
-    id: "acme-accounting",
-    title: "Acme Accounting",
-    subtitle: "A ready-made website and landing page for your accounting business.",
-    category: "Finance & Legal",
-    icon: <Briefcase size={24} />,
-    color: "bg-emerald-600",
-    link: "https://ai.studio/apps/drive/1dBHa3J6BR74oT6elJdGa3lvVMMxDnasK",
-    image: "https://picsum.photos/seed/accounting/600/400"
-  },
-  {
-    id: "story-weaver",
-    title: "Story Weaver",
-    subtitle: "Your co-author agent to help you generate your brilliant idea and script.",
-    category: "AI & Automation",
-    icon: <PenTool size={24} />,
-    color: "bg-fuchsia-500",
-    link: "https://ai.studio/apps/drive/16TCeQTeJ1mOWTDmatmloG243PXnEIrgg",
-    image: "https://picsum.photos/seed/story/600/400"
-  },
-  {
-    id: "dr-lahlou",
-    title: "Dr Lahlou Imane",
-    subtitle: "Apps that help you manage your whole hospital and clinical needs.",
-    category: "Healthcare",
-    icon: <Stethoscope size={24} />,
-    color: "bg-teal-600"
-  },
-  {
-    id: "sm-post-gen",
-    title: "SM Post Generator",
-    subtitle: "Generate full posts for different styles and formats. Automate social media.",
-    category: "AI & Automation",
-    icon: <Share2 size={24} />,
-    color: "bg-blue-400",
-    link: "https://ai.studio/apps/drive/1P_i_dET0BpXmQ4vbssXdJ_aKWQnmoj3B",
-    image: "https://picsum.photos/seed/social/600/400"
-  },
-  {
-    id: "comic-style-gen",
-    title: "Comic Style Gen",
-    subtitle: "Generate different banner types in specific artistic styles.",
-    category: "AI & Automation",
-    icon: <ImageIcon size={24} />,
-    color: "bg-red-500"
-  },
-  {
-    id: "tennis-market",
-    title: "Tennis Marketplace",
-    subtitle: "Buy and sell all items related to tennis and racket sports.",
-    category: "E-commerce",
-    icon: <ShoppingCart size={24} />,
-    color: "bg-lime-500",
-    link: "https://ai.studio/apps/drive/1li8yJlYV2NhxKjr5W4OKs-gxxeu0PMF6",
-    image: "https://picsum.photos/seed/tennis/600/400"
-  },
-  {
-    id: "trivia-football",
-    title: "Trivia Football",
-    subtitle: "Create different questions for users to test their football knowledge.",
-    category: "Education",
-    icon: <Trophy size={24} />,
-    color: "bg-orange-500",
-    link: "https://ai.studio/apps/drive/18XMO2YcQwtgRCmgQAQOC0C9JdHFlTUSV",
-    image: "https://picsum.photos/seed/trivia/600/400"
-  },
-  {
-    id: "hostel-management",
-    title: "Hostel Management",
-    subtitle: "Help hostel and guesthouses manage their property with tiny details.",
-    category: "Operations",
-    icon: <Home size={24} />,
-    color: "bg-sky-500",
-    link: "https://ai.studio/apps/drive/1YM4i2EIqxzmQiAp_CzQij_JREJ482CHT",
-    image: "https://picsum.photos/seed/hostel/600/400"
-  },
-  {
-    id: "video-clip-prod",
-    title: "Video Clip Prod",
-    subtitle: "Generate first frames for your whole lyrics following the story.",
-    category: "AI & Automation",
-    icon: <Video size={24} />,
-    color: "bg-purple-500"
-  },
-  {
-    id: "restaid",
-    title: "Restaid",
-    subtitle: "Help food trucks and small restaurants manage day-to-day activities.",
-    category: "Operations",
-    icon: <Utensils size={24} />,
-    color: "bg-orange-600"
-  },
-  {
-    id: "fruit-ninja",
-    title: "Veggie Slicer",
-    subtitle: "Fruit Ninja-inspired slicing game featuring vibrant visuals, fluid canvas animations, and a combo-driven scoring system. Slice veggies, avoid bombs, and survive as long as you can!",
-    category: "Gaming",
-    icon: <Activity size={24} />,
-    color: "bg-red-500",
-    link: "https://ai.studio/apps/drive/16Bkr54mzhHk9v4S7RPDVkZ_aN0rlJVmK",
-    image: "https://picsum.photos/seed/fruitninja/600/400"
-  },
-  {
-    id: "holidays-image-studio",
-    title: "Holidays & Celebrations Image Studio",
-    subtitle: "A professional AI studio for generating festive, culturally respectful, and joyful celebration imagery.",
-    category: "AI & Automation",
-    icon: <Sparkles size={24} />,
-    color: "bg-pink-500",
-    link: "https://ai.studio/apps/a9d10efc-3e7f-45f9-92cb-6448f3b3abc3",
-    image: "https://picsum.photos/seed/holidays/600/400"
-  },
-  {
-    id: "freshmart",
-    title: "FreshMart - Premium Grocery eCommerce",
-    subtitle: "A modern, premium grocery eCommerce template with a clean design and smooth user experience.",
-    category: "E-commerce",
-    icon: <ShoppingBag size={24} />,
-    color: "bg-emerald-600",
-    link: "https://ai.studio/apps/drive/1C0EoLY3xsVe9yp-gWi_vucDQD1NHjn4c",
-    image: "https://picsum.photos/seed/freshmart/600/400"
-  },
-  {
-    id: "turbo-dash-2d",
-    title: "Turbo Dash 2D",
-    subtitle: "A high-octane, arcade-style 2D top-down racing game with dynamic difficulty and an AI race commentator.",
-    category: "Gaming",
-    icon: <Activity size={24} />,
-    color: "bg-orange-500",
-    link: "https://ai.studio/apps/drive/1BbTBofzzI7LpE67FQiEGhx2HiNXdDJf4",
-    image: "https://picsum.photos/seed/turbodash/600/400"
-  },
-  {
-    id: "lumina-ai-studios",
-    title: "Lumina AI Studios",
-    subtitle: "Full-service AI video production agency for artists and creators. We handle the entire process from concept to final render.",
-    category: "AI & Automation",
-    icon: <Video size={24} />,
-    color: "bg-purple-600",
-    link: "https://ai.studio/apps/drive/1xH9MgK6LAxRUBMBoB5Xm-XmICf9Qlb6v",
-    image: "https://picsum.photos/seed/lumina/600/400"
-  },
-  {
-    id: "architecture-image-studio",
-    title: "Architecture Image Studio",
-    subtitle: "A professional architectural visualization tool powered by Gemini. Generate high-fidelity renders with granular control over style, materials, and environment.",
-    category: "AI & Automation",
-    icon: <ImageIcon size={24} />,
-    color: "bg-stone-600",
-    link: "https://ai.studio/apps/drive/1ANkazrdb0k7DVKpwswnL48n2g4Z3tYOE",
-    image: "https://picsum.photos/seed/architecture/600/400"
-  },
-  {
-    id: "business-finance-image-studio",
-    title: "Business & Finance Image Studio",
-    subtitle: "A premium AI-powered image generator for professional business, finance, and corporate visuals.",
-    category: "AI & Automation",
-    icon: <Briefcase size={24} />,
-    color: "bg-blue-800",
-    link: "https://ai.studio/apps/drive/1egW_g7XINPlTYwvuSdN1AkKOpvA--9Vn",
-    image: "https://picsum.photos/seed/business/600/400"
-  },
-  {
-    id: "education-image-studio",
-    title: "Education Image Studio",
-    subtitle: "A professional AI image generator tailored for educational content, teachers, and schools.",
-    category: "Education",
-    icon: <BookOpen size={24} />,
-    color: "bg-emerald-500",
-    link: "https://ai.studio/apps/drive/1ndZgvL-ZhoAjIgWzHYLitSbBFezUPB0n",
-    image: "https://picsum.photos/seed/education/600/400"
-  },
-  {
-    id: "wildlife-image-studio",
-    title: "Wildlife Image Studio",
-    subtitle: "A professional-grade AI studio for generating cinematic wildlife and nature imagery with granular control over environment, lighting, and camera settings.",
-    category: "AI & Automation",
-    icon: <Camera size={24} />,
-    color: "bg-green-700",
-    link: "https://ai.studio/apps/drive/1AuvmRUjVcTK-n7Hj9N6kN4_I4sc9ibIW",
-    image: "https://picsum.photos/seed/wildlife/600/400"
-  },
-  {
-    id: "cinegen-ai",
-    title: "CineGen AI",
-    subtitle: "A professional AI-powered cinematic storyboard creator that turns concepts into visual production plans with style consistency.",
-    category: "AI & Automation",
-    icon: <Video size={24} />,
-    color: "bg-indigo-700",
-    link: "https://ai.studio/apps/drive/1Yhk2s2-m70D7XbLA01iSg_Je0F-Xiju0",
-    image: "https://picsum.photos/seed/cinegen/600/400"
-  },
-  {
-    id: "legal-ai-maroc",
-    title: "Legal AI Maroc",
-    subtitle: "An AI-powered application designed to provide precision insights into Moroccan laws, Dahirs, and codes for professionals.",
-    category: "Finance & Legal",
-    icon: <Briefcase size={24} />,
-    color: "bg-slate-800",
-    link: "https://ai.studio/apps/drive/1pSrviVSi_2GdWguZ8FUIIBsuzPGhzap2",
-    image: "https://picsum.photos/seed/legalmaroc/600/400"
-  },
-  {
-    id: "kids-story-gen",
-    title: "Kid's Story Generation AI",
-    subtitle: "A fun and interactive application that uses AI to generate and illustrate magical stories for children.",
-    category: "Education",
-    icon: <Sparkles size={24} />,
-    color: "bg-fuchsia-400",
-    link: "https://ai.studio/apps/drive/1K89KMHVfjEWYo92KnBAeL7Kzxz_cLNPD",
-    image: "https://picsum.photos/seed/kidsstory/600/400"
-  },
-  {
-    id: "promptcrafter",
-    title: "PromptCrafter",
-    subtitle: "An AI-powered assistant that helps creators generate high-quality, detailed prompts for various generative AI models.",
-    category: "AI & Automation",
-    icon: <PenTool size={24} />,
-    color: "bg-cyan-600",
-    link: "https://ai.studio/apps/drive/1rQVcaGzK4reBuw3yVp94ux6smmVvsuDX",
-    image: "https://picsum.photos/seed/promptcrafter/600/400"
-  }
-];
+interface TemplatesPageProps {
+  navigate?: (page: string, slug?: string | null) => void;
+}
 
-const TemplateCard: React.FC<{ template: any }> = ({ template }) => (
-  <a href={template.link || "#"} target={template.link ? "_blank" : "_self"} rel="noopener noreferrer" className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full block">
+const TemplateCard: React.FC<{ template: Template; navigate?: (page: string, slug?: string | null) => void }> = ({ template, navigate }) => (
+  <div 
+    onClick={(e) => {
+      e.preventDefault();
+      if (navigate) {
+        navigate('template-detail', template.slug);
+      }
+    }}
+    className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full cursor-pointer"
+  >
     {/* Image Section */}
     <div className="w-full h-48 bg-gray-100 relative overflow-hidden">
       {template.image ? (
         <img src={template.image} alt={template.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
       ) : (
         <div className={`w-full h-full flex items-center justify-center ${template.color} opacity-10 group-hover:opacity-20 transition-opacity`}>
-          {React.cloneElement(template.icon, { size: 64 })}
+          {React.cloneElement(template.icon as React.ReactElement, { size: 64 })}
         </div>
       )}
       {template.featured && (
@@ -416,10 +72,10 @@ const TemplateCard: React.FC<{ template: any }> = ({ template }) => (
         <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
       </div>
     </div>
-  </a>
+  </div>
 );
 
-const TemplatesPage: React.FC = () => {
+const TemplatesPage: React.FC<TemplatesPageProps> = ({ navigate }) => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -458,7 +114,7 @@ const TemplatesPage: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredTemplates.map(template => (
-              <TemplateCard key={`featured-${template.id}`} template={template} />
+              <TemplateCard key={`featured-${template.id}`} template={template} navigate={navigate} />
             ))}
           </div>
         </div>
@@ -511,7 +167,7 @@ const TemplatesPage: React.FC = () => {
         {filteredTemplates.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredTemplates.map(template => (
-              <TemplateCard key={template.id} template={template} />
+              <TemplateCard key={template.id} template={template} navigate={navigate} />
             ))}
           </div>
         ) : (
