@@ -12,7 +12,7 @@ export const templates: Template[] = [
   {
     id: "cctv-prompt",
     title: "CCTV Prompt Gen",
-    slug: "cctv",
+    slug: "cctv-prompt-gen",
     subtitle: "Generate high quality CCTV prompts to help you generate the best sequence.",
     description: "Create realistic surveillance-style video prompts effortlessly. Whether for security training simulations, film production, or creative projects, this tool helps you craft detailed descriptions that generative AI models can turn into convincing CCTV footage.",
     category: "AI & Automation",
@@ -299,17 +299,19 @@ export const templates: Template[] = [
     title: "SM Post Generator",
     slug: "sm-post-generator",
     subtitle: "Generate full posts for different styles and formats. Automate social media.",
-    description: "Create engaging social media content for any platform. Generate captions, hashtags, and image ideas tailored to your brand voice.",
+    description: "A comprehensive tool for social media managers or content creators to brainstorm, generate, refine, and share social media content using AI. Generate complete posts with text and images, customize tone and style, enhance images, and engage with your community.",
     category: "AI & Automation",
     icon: <Share2 size={24} />,
     color: "bg-blue-400",
     link: "https://ai.studio/apps/drive/1P_i_dET0BpXmQ4vbssXdJ_aKWQnmoj3B",
     image: "https://picsum.photos/seed/social/600/400",
     features: [
-      "Multi-platform support (Instagram, LinkedIn, Twitter)",
-      "Hashtag generation",
-      "Tone adjustment",
-      "Image prompt suggestions"
+      "Content Generation: Create complete posts with text captions, hashtags, and images.",
+      "Customization: Choose modes (Text & Image / Text Only), tones, and artistic styles.",
+      "AI Integration: Powered by Gemini API for high-quality content generation.",
+      "Post-Generation Tools: Enhance images and generate AI replies to comments.",
+      "Community & Inspiration: Brainstorm ideas and explore a community showcase.",
+      "Multi-language Support: English and Arabic (RTL) support."
     ]
   },
   {
@@ -646,6 +648,24 @@ export const templates: Template[] = [
       "Prompt library",
       "Style modifiers",
       "Negative prompt suggestions"
+    ]
+  },
+  {
+    id: "lyric-lens",
+    title: "LyricLens",
+    slug: "lyric-lens",
+    subtitle: "Cinematic Scene Generator",
+    description: "From Lyric to Cinematic Reality. Paste your timestamped lyrics and let our AI director craft detailed scene breakdowns, camera directions, and lighting plots for your next video production.",
+    category: "AI & Automation",
+    icon: <Video size={24} />,
+    color: "bg-purple-700",
+    link: "https://ai.studio/apps/2f7bb317-147c-4dc0-83d3-cdded98d6c8a",
+    image: "https://picsum.photos/seed/lyriclens/600/400",
+    features: [
+      "Scene breakdowns",
+      "Camera directions",
+      "Lighting plots",
+      "Timestamped lyrics support"
     ]
   }
 ];
