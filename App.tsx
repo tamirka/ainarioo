@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
-import Portfolio from './components/Portfolio';
 import Blog from './components/Blog';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -179,7 +178,6 @@ const App: React.FC = () => {
                             <Hero navigate={handleNavigate} />
                             <Services />
                             <HowItWorks />
-                            <Portfolio />
                             <Blog navigate={handleNavigate} posts={posts} loading={loading} />
                             <ContactForm />
                         </>
